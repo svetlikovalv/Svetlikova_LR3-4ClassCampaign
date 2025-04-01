@@ -32,6 +32,10 @@ Campaign:: Campaign()
 }
 
 
+
+Campaign::Campaign(const Campaign& other)
+    :name(other.name), budget(other.budget), cost(other.cost), results(other.results) {}
+
 Campaign& Campaign::operator=(const Campaign& other) {
     if (this != &other) {
         name = other.name;

@@ -97,7 +97,9 @@ void create_campaign_default(){
 //создает компанию с помощью констр копирования
 void create_campaign_copy (){
     Campaign c2;
+    cout<<"campaign 2: "<<c2<<endl;
     Campaign c3=c2;
+    cout<<"campaign 3: "<<c3<<endl;
 }
 //создает компанию с помощью констр преобразования
 void create_campaign_trans(){

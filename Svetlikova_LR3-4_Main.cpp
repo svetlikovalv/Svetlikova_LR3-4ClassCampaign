@@ -7,10 +7,10 @@ using namespace std;
 
 int main(){
     srand(time(NULL));
-
+    create_campaign_default();
     map<int, menu_item > menu = {
         {1,{"Create Campaign constructor default",create_campaign_default}},
-        //{2,{"Create Campaign constructor of copy",create_campaign_copy}},
+        {2,{"Create Campaign constructor of copy",create_campaign_copy}},
         //{3,{"Create Campaign constructor of trans",create_campaign_trans}},
         //{4,{"Create Campaign with consol",create_campaign_consol}},
         //{5,{"Show array of Campaign",show_array_campaign(vector_of_all_campaign)}},
