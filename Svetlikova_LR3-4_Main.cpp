@@ -1,25 +1,23 @@
 #include <ctime>
 #include <map>
-#include <C:\Users\Chris Gargoyle\Svetlikova_LR3-4_ClassCampaign\Svetlikova_LR3-4ClassCampaign\Svetlikova_LR3-4_ClassCampaign.cpp>
+#include "Svetlikova_LR3-4_ClassCampaign.cpp"
 using namespace std;
 
-struct menu_item{
-    string title;//название пункта меню
-    function<void()>action;//действие пункта
-};
+
 
 int main(){
     srand(time(NULL));
 
     map<int, menu_item > menu = {
-        //{1,{"Create Campaign constructor default",create_campaign_default}},
-        //{2,{"Create Campaign constructor with a",create_campaign_a}},
-        //{3,{"Create Campaign constructor with a&b",create_campaign_b}},
+        {1,{"Create Campaign constructor default",create_campaign_default}},
+        //{2,{"Create Campaign constructor of copy",create_campaign_copy}},
+        //{3,{"Create Campaign constructor of trans",create_campaign_trans}},
         //{4,{"Create Campaign with consol",create_campaign_consol}},
         //{5,{"Show array of Campaign",show_array_campaign(vector_of_all_campaign)}},
-        //{6,{"Calculate Campaign ",calculate_campaign}},
+        //{6,{"Calculate Campaign ROI",ROI}},
         //{7,{"Add of Campaign",add_campaign}},
         //{8,{"Sum of array the Campaign",sum_array_campaign}},
+        //{9,{"Sort Campaigns by budget",sort_campaigns_by_budget}},
     };
     unsigned choice = 0;
 
@@ -45,3 +43,6 @@ int main(){
     }
     return 0;
 }
+
+
+
