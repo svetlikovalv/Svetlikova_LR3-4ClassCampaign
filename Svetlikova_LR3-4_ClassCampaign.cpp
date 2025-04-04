@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iomanip>
 #include <random>
 #include "Svetlikova_LR3-4_Methods.h"
 using namespace std;
@@ -9,10 +8,11 @@ using namespace std;
 
 
 
+//для генерации рандомных имен компаний из 5 заглавных букв
 string generate_company_name() {
     string name;
     random_device rd;
-    mt19937 generator(rd());
+    mt19937 generator(rd());//генератор псевдослучайных рандомных чисел
     uniform_int_distribution<> dist('A', 'Z');
 
     for (int i = 0; i < 5; ++i) {
@@ -21,18 +21,18 @@ string generate_company_name() {
     return name;
 }
 
-
+//по умолчанию
 Campaign:: Campaign()
 {
     name=generate_company_name();
-    budget=rand()%100+1;
-    cost=rand()%100+1;
-    results.resize(0,5);
-    generate(results.begin(),results.end(),[](){return rand()%10;});
+    budget=(rand()%1000+1)/10.0;
+    cost=(rand()%1000+1)/10.0;
+    results.resize(5.0,0.0);
+    generate(results.begin(),results.end(),[](){return (rand()%100)/10.0;});
 }
 
 
-
+//конструктор копирования
 Campaign::Campaign(const Campaign& other)
     :name(other.name), budget(other.budget), cost(other.cost), results(other.results) {}
 
@@ -51,11 +51,20 @@ Campaign& Campaign::operator++(){
     return *this;
 }
 
- /*Campaign& Campaign::operator++(int){
+ Campaign Campaign::operator++(int){
     Campaign temp = *this;
     ++(*this);
     return temp;
- }*/
+ }
+
+ Campaign operator+(const Campaign& c1, const Campaign& c2) {
+    Campaign result = c1;
+    result.budget+=c2.budget;
+    result.cost += c2.cost;
+    result.results.insert(result.results.end(), c2.results.begin(), c2.results.end());
+    return result;
+}
+
 
 ostream& operator<<(ostream& mystream, const Campaign& obj) {
     mystream << "Name: " << obj.name << "\n";

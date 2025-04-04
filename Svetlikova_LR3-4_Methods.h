@@ -10,6 +10,8 @@ using namespace std;
 
 vector<Campaign> campaigns;
 
+
+
 bool user_choice(string input) {
 	if (input.empty()) return false;
 	try {
@@ -65,7 +67,7 @@ function<void()> enter_string(string& varLink, string label) {
         getline(cin, varLink);
     };
 }
-
+//структура для менюшки
 struct menu_item {
     string title;
     function<void()> action;
@@ -102,22 +104,94 @@ void create_campaign_copy (){
     cout<<"campaign 3: "<<c3<<endl;
 }
 //создает компанию с помощью констр преобразования
-void create_campaign_trans(){
-    //Campaign c4();
-}
+// void create_campaign_trans(){
+//     Campaign c4(string("xz"),300.0,{3.5,4,5});
+// }
 //создает компанию при воде пользователем с клавиатуры каждого поля
 void create_campaign_consol(){
-    
+    Campaign c5;
+    cin>>c5;
+    campaigns.push_back(c5);
+    cout<<"введеннная компания: "<<c5<<endl;
 }
 
 
-//складывает 2 компании добавляя 2ой вектор в конец первого
+//для инкриментов
 void add_campaign(){
+    if (campaigns.size() > 0){
+        //вывод списка компаний
+      cout << "\n The list of campaigns\n" ;
+      for (auto it = campaigns.begin(); it != campaigns.end(); it++)
+          cout << (it - campaigns.begin()) << ") " << *it << endl;
+      //ввод номера компании для вычислений
+      unsigned number = 0;
+      enter_choice(number, "Input number of campaign for calculation increments: ")();
+      try{
+        cout<<"постфиксный инкримент"<<endl;
+        cout<<campaigns[number]++;
+        cout<<"результат: "<<campaigns[number]<<endl;
+        cout<<"префиксный инкримент: "<<++campaigns[number]<<endl;
+        
+        }
+      catch(...){
+          cerr << "Errror, try enter another number of campaign";
+      }
+  }
+}
+//складывает 2 компании добавляя 2ой вектор в конец первого
+void sum_array_campaign(){
+    cout<<"вычисление суммы компаний и тест присваивания"<<endl;
+    //Campaign camp=campaigns[num1]=campaigns[num2];
+    if (campaigns.size() > 0){
+        //вывод списка компаний
+      cout << "\n The list of campaigns\n" ;
+      for (auto it = campaigns.begin(); it != campaigns.end(); it++)
+          cout << (it - campaigns.begin()) << ") " << *it << endl;
+      //ввод номера компании для вычислений
+      unsigned num1 = 0;
+      enter_choice(num1, "Input number of first campaig: ")();
+      unsigned num2 = 0;
+      enter_choice(num2, "Input number of second campaign: ")();
+      try{
+        cout<<"сумма компаний: "<<campaigns[num1]+campaigns[num2]<<endl;
+        Campaign camp=campaigns[num1]=campaigns[num2];
+        cout<<"тест присваивания: "<< camp<<endl;
+        }
+      catch(...){
+          cerr << "Errror, try enter another number of campaign";
+      }
+  }
+}
+//sets
+void methods(){
+    Campaign c6;
+    cout<<"начальная компания: "<<c6<<endl;
+    c6.set_name("new name");
+    c6.set_budget(300.0);
+    c6.set_cost(250.0);
+    c6.set_results({2.3,3.4,5.6});
+    cout<<"измененная компания: "<<c6<<endl;
     
 }
-//
-void sum_array_campaign(){
-    
+
+void roi(){
+    cout<<"вычисление roi компаний "<<endl;
+    if (campaigns.size() > 0){
+        //вывод списка компаний
+      cout << "\n The list of campaigns\n" ;
+      for (auto it = campaigns.begin(); it != campaigns.end(); it++)
+          cout << (it - campaigns.begin()) << ") " << *it << endl;
+      //ввод номера компании для вычислений
+      unsigned num1 = 0;
+      enter_choice(num1, "Input number of first campaig: ")();
+      
+      try{
+        cout<< campaigns[num1].ROI() <<endl;
+        }
+      catch(...){
+          cerr << "Errror, try enter another number of campaign";
+      }
+  }
 }
 
 // функция, возвращающая список кампаний, отсортированных по бюджету

@@ -7,17 +7,18 @@ using namespace std;
 
 int main(){
     srand(time(NULL));
-    create_campaign_default();
+    //create_campaign_default();
+    //create_campaign_copy();
     map<int, menu_item > menu = {
         {1,{"Create Campaign constructor default",create_campaign_default}},
         {2,{"Create Campaign constructor of copy",create_campaign_copy}},
-        //{3,{"Create Campaign constructor of trans",create_campaign_trans}},
-        //{4,{"Create Campaign with consol",create_campaign_consol}},
-        //{5,{"Show array of Campaign",show_array_campaign(vector_of_all_campaign)}},
-        //{6,{"Calculate Campaign ROI",ROI}},
-        //{7,{"Add of Campaign",add_campaign}},
-        //{8,{"Sum of array the Campaign",sum_array_campaign}},
-        //{9,{"Sort Campaigns by budget",sort_campaigns_by_budget}},
+        {3,{"Create Campaign with consol",create_campaign_consol}},
+        {4,{"Show array of Campaign",show_array_campaign(campaigns)}},
+        {5,{"Calculate Campaign ROI",roi}},
+        {6,{"Add of Campaign",add_campaign}},//для инкриментов
+        //{7,{"Sum of the Campaign",sum_array_campaign}},//для плюса
+        //{8,{"Sort Campaigns by budget",sort_campaigns_by_budget}},
+        //  {9,{"Demonstration of set methods",methods}},
     };
     unsigned choice = 0;
 
@@ -34,7 +35,7 @@ int main(){
         }
         cout<<"==========Action=========="<<endl;
         if (menu.find(choice)!=menu.end()){
-            menu[choice].action;
+            menu[choice].action();
         }
         else{
             cout<<"Некорректный ввод. ";
