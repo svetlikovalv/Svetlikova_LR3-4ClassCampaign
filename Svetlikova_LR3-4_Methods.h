@@ -103,10 +103,7 @@ void create_campaign_copy (){
     Campaign c3=c2;
     cout<<"campaign 3: "<<c3<<endl;
 }
-//создает компанию с помощью констр преобразования
-// void create_campaign_trans(){
-//     Campaign c4(string("xz"),300.0,{3.5,4,5});
-// }
+
 //создает компанию при воде пользователем с клавиатуры каждого поля
 void create_campaign_consol(){
     Campaign c5;
@@ -127,9 +124,9 @@ void add_campaign(){
       unsigned number = 0;
       enter_choice(number, "Input number of campaign for calculation increments: ")();
       try{
-        cout<<"постфиксный инкримент"<<endl;
-        cout<<campaigns[number]++;
-        cout<<"результат: "<<campaigns[number]<<endl;
+        cout<<"постфиксный инкримент до"<<endl;
+        cout<<campaigns[number]++<<endl;
+        cout<<"после: "<<campaigns[number]<<endl;
         cout<<"префиксный инкримент: "<<++campaigns[number]<<endl;
         
         }
@@ -149,7 +146,7 @@ void sum_array_campaign(){
           cout << (it - campaigns.begin()) << ") " << *it << endl;
       //ввод номера компании для вычислений
       unsigned num1 = 0;
-      enter_choice(num1, "Input number of first campaig: ")();
+      enter_choice(num1, "Input number of first campaign: ")();
       unsigned num2 = 0;
       enter_choice(num2, "Input number of second campaign: ")();
       try{
@@ -183,7 +180,7 @@ void roi(){
           cout << (it - campaigns.begin()) << ") " << *it << endl;
       //ввод номера компании для вычислений
       unsigned num1 = 0;
-      enter_choice(num1, "Input number of first campaig: ")();
+      enter_choice(num1, "Input number of first campaign: ")();
       
       try{
         cout<< campaigns[num1].ROI() <<endl;
@@ -194,15 +191,19 @@ void roi(){
   }
 }
 
-// функция, возвращающая список кампаний, отсортированных по бюджету
-vector<Campaign> sort_campaigns_by_budget(vector<Campaign>& campaigns) {
-    sort(campaigns.begin(), campaigns.end());
-    return campaigns;
+
+vector<Campaign> sortCampaignsByBudget() {
+    vector<Campaign> camps = campaigns;
+    sort(camps.begin(), camps.end());
+    return camps;
+    
 }
-
-
-
-
-
+void sorted_campaigns(){
+    vector<Campaign> camp=sortCampaignsByBudget();
+    cout<<"отсортированные компании: "<<endl;
+    for(const auto&c:camp){
+        cout<<c<<endl;
+    }
+}
 
 #endif

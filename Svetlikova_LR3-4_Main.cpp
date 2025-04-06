@@ -7,8 +7,6 @@ using namespace std;
 
 int main(){
     srand(time(NULL));
-    //create_campaign_default();
-    //create_campaign_copy();
     map<int, menu_item > menu = {
         {1,{"Create Campaign constructor default",create_campaign_default}},
         {2,{"Create Campaign constructor of copy",create_campaign_copy}},
@@ -16,9 +14,9 @@ int main(){
         {4,{"Show array of Campaign",show_array_campaign(campaigns)}},
         {5,{"Calculate Campaign ROI",roi}},
         {6,{"Add of Campaign",add_campaign}},//для инкриментов
-        //{7,{"Sum of the Campaign",sum_array_campaign}},//для плюса
-        //{8,{"Sort Campaigns by budget",sort_campaigns_by_budget}},
-        //  {9,{"Demonstration of set methods",methods}},
+        {7,{"Sum of the Campaign",sum_array_campaign}},//для плюса и присваивания
+        {8,{"Sort Campaigns by budget",sorted_campaigns}},
+        {9,{"Demonstration of set methods",methods}},
     };
     unsigned choice = 0;
 

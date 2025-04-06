@@ -2,9 +2,6 @@
 #include <random>
 #include "Svetlikova_LR3-4_Methods.h"
 using namespace std;
-// bool Campaign::operator<(const Campaign& other)const{
-//     return budget < other.budget;
-// }
 
 
 
@@ -59,6 +56,7 @@ Campaign& Campaign::operator++(){
 
  Campaign operator+(const Campaign& c1, const Campaign& c2) {
     Campaign result = c1;
+    result.name=result.name+" & "+c2.name;
     result.budget+=c2.budget;
     result.cost += c2.cost;
     result.results.insert(result.results.end(), c2.results.begin(), c2.results.end());

@@ -48,6 +48,7 @@ public:
     //дружественные ввод и вывод
     friend ostream& operator<<(ostream& mystream,const Campaign &obj);
     friend istream& operator>>(istream& mystream, Campaign &obj);
+
 };
 
 #endif
