@@ -10,7 +10,7 @@ string generate_company_name() {
     string name;
     random_device rd;
     mt19937 generator(rd());//генератор псевдослучайных рандомных чисел
-    uniform_int_distribution<> dist('A', 'Z');
+    uniform_int_distribution<> dist('A', 'Z');//диапазон значений
 
     for (int i = 0; i < 5; ++i) {
         name += static_cast<char>(dist(generator));
@@ -76,24 +76,15 @@ ostream& operator<<(ostream& mystream, const Campaign& obj) {
     return mystream;
 } 
 
-istream& operator>>(istream& mystream, Campaign &obj) {
-    cout << "Enter campaign name: ";
-    getline(mystream, obj.name);
-    //string name;
-    //obj.set_name(getline(mystream, name));
-    cout << "Enter budget: ";
-    mystream>>obj.budget;
-    mystream.ignore();
-    cout << "Enter cost: ";
-    mystream>>obj.cost;
-    mystream.ignore(); 
-    double result;
-    obj.results.clear();
-    while (mystream.peek() != '\n') {
-        mystream >> result;
-        obj.results.push_back(result);
-    }
-    mystream.ignore();
+
+//используем void-ы чтобы можно было вводить, проверять и задавать введенные значения
+//лямбда-функции с этим не справляются,тк они возвращают функцию и должны работать с вводом напрямую
+//а прикрутить их примеру из методички мне не удалось
+
+istream& operator>>(istream& mystream, Campaign& obj) {
+    enter_string(obj.name, "Enter campaign name");
+    enter_number(obj.budget, "Enter campaign budget");
+    enter_number(obj.cost, "Enter campaign cost");
+    enter_results(obj.results);
     return mystream;
 }
-
