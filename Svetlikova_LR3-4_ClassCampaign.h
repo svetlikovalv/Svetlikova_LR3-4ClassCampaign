@@ -28,7 +28,7 @@ public:
 
     //конструктор копирования
     Campaign(const Campaign& other);
-    //конструктор спихивания задачи(делегирования) вызывает параметризированный
+    //конструктор делегирования вызывает параметризированный
     Campaign(const string& n, double b) : Campaign(n, b, 0.0, {}) {}
 
    ~Campaign()=default;
@@ -46,7 +46,7 @@ public:
     double ROI ()const;
 
     //перегрузки
-    bool operator<(const Campaign& other) const { return budget < other.budget; }//для сортировки компаний по бюджету
+    bool operator<(const Campaign& other) const { return budget < other.budget; }//для сортировки кампаний по бюджету
     bool operator>(const Campaign& other) const;
     bool operator>=(const Campaign& other) const;
     bool operator<=(const Campaign& other) const;

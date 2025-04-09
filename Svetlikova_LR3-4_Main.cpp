@@ -12,7 +12,7 @@ int main(){
         {3,{"Create Campaign with consol",create_campaign_consol}},
         {4,{"Show array of Campaign",show_array_campaign(campaigns)}},
         {5,{"Testing comparison operators",test_operators}},
-        {6,{"Add of Campaign",add_campaign}},//для инкриментов
+        {6,{"Add of Campaign",add_campaign}},//для инкрементов
         {7,{"Sum of the Campaign",sum_array_campaign}},//для плюса и присваивания
         {8,{"Descending sort Campaigns by budget",sorted_campaigns}},
         {9,{"Demonstration of set methods",methods}},

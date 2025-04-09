@@ -138,7 +138,7 @@ double Campaign:: ROI ()const{
     return (budget / cost) * 100;
 }
 
-//создает несколько компаний с дефолтным конструктором 
+//создает несколько кампаний с дефолтным конструктором 
 void create_campaign_default(){
     Campaign c1,c2;
     campaigns.push_back(c1);
@@ -146,7 +146,7 @@ void create_campaign_default(){
     cout<<"campaign 1: "<<c1<<endl;
     cout<<"campaign 2: "<<c2<<endl;
 }
-//создает компанию с помощью констр копирования
+//создает кампанию с помощью констр копирования
 void create_campaign_copy (){
     Campaign c2;
     cout<<"campaign 2: "<<c2<<endl;
@@ -155,7 +155,7 @@ void create_campaign_copy (){
     campaigns.push_back(c3);
 }
 
-//создает компанию при воде пользователем с клавиатуры каждого поля
+//создает кампанию при воде пользователем с клавиатуры каждого поля
 void create_campaign_consol(){
     Campaign c5;
     cin>>c5;
@@ -167,11 +167,11 @@ void create_campaign_consol(){
 //для инкриментов
 void add_campaign(){
     if (campaigns.size() > 0){
-        //вывод списка компаний
+        //вывод списка кампаний
       cout << "\n The list of campaigns\n" ;
       for (auto it = campaigns.begin(); it != campaigns.end(); it++)
           cout << (it - campaigns.begin()) << ") " << *it << endl;
-      //ввод номера компании для вычислений
+      //ввод номера кампании для вычислений
       unsigned number = 0;
       enter_choice(number, "Input number of campaign for calculation increments: ")();
       try{
@@ -186,22 +186,22 @@ void add_campaign(){
       }
   }
 }
-//складывает 2 компании добавляя 2ой вектор в конец первого
+//складывает 2 кампании добавляя 2ой вектор в конец первого
 void sum_array_campaign(){
-    cout<<"вычисление суммы компаний и тест присваивания"<<endl;
+    cout<<"вычисление суммы компаний"<<endl;
     //Campaign camp=campaigns[num1]=campaigns[num2];
     if (campaigns.size() > 0){
-        //вывод списка компаний
+        //вывод списка кампаний
       cout << "\n The list of campaigns\n" ;
       for (auto it = campaigns.begin(); it != campaigns.end(); it++)
           cout << (it - campaigns.begin()) << ") " << *it << endl;
-      //ввод номера компании для вычислений
+      //ввод номера кампании для вычислений
       unsigned num1 = 0;
       enter_choice(num1, "Input number of first campaign: ")();
       unsigned num2 = 0;
       enter_choice(num2, "Input number of second campaign: ")();
       try{
-        cout<<"сумма компаний: "<<campaigns[num1]+campaigns[num2]<<endl;
+        cout<<"сумма кампаний: "<<campaigns[num1]+campaigns[num2]<<endl;
         campaigns.push_back(campaigns[num1]+campaigns[num2]);
         }
       catch(...){
@@ -211,7 +211,7 @@ void sum_array_campaign(){
 }
 
 void test_comparison_campaign(){
-    cout<<"тест присваивания одной компании другой"<<endl;
+    cout<<"тест присваивания одной кампании другой"<<endl;
     //Campaign camp=campaigns[num1]=campaigns[num2];
     if (campaigns.size() > 0){
         //вывод списка компаний
@@ -238,19 +238,19 @@ void methods(){
     Campaign c6;
     //тестирование сетов 
     cout<<"тестирование set-методов: "<<endl;
-    cout<<"начальная компания: "<<c6<<endl;
+    cout<<"начальная кампания: "<<c6<<endl;
     cout<<"новые значения для set-ов: name=new name budget=300.0 cost=250.0 results{2.3,3.4,5.6}"<<endl;
     c6.set_name("new name");
     c6.set_budget(300.0);
     c6.set_cost(250.0);
     c6.set_results({2.3,3.4,5.6});
-    cout<<"измененная компания: "<<c6<<endl;
-    cout<<"тестирование метода ROI для компании"<<endl;
-    cout<<"ROI of campign: "<<c6.ROI()<<endl;
+    cout<<"измененная кампания: "<<c6<<endl;
+    cout<<"тестирование метода ROI для кампании"<<endl;
+    cout<<"ROI of campaign: "<<c6.ROI()<<endl;
 }
 
 void test_operators(){
-    cout<<"тест операторов сравниения компаний по бюджету(формат вывода:0 или 1)"<<endl;
+    cout<<"тест операторов сравниения кампаний по бюджету(формат вывода:0 или 1)"<<endl;
     Campaign c7,c8;
     cout<<"компания #1 для теста "<<c7<<endl;
     cout<<"компания #2 для теста "<<c8<<endl;
@@ -269,7 +269,7 @@ vector<Campaign> sortCampaignsByBudget() {
 }
 void sorted_campaigns(){
     vector<Campaign> camp=sortCampaignsByBudget();
-    cout<<"отсортированные по возрастанию бюджета компании: "<<endl;
+    cout<<"отсортированные по возрастанию бюджета кампании: "<<endl;
     for(const auto&c:camp){
         cout<<c<<endl;
     }
